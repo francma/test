@@ -1,0 +1,43 @@
+stages:
+  - first
+  - second
+  - third
+
+jobs:
+  job1:
+    stage: first
+    image: "alpine/3.5"
+    commands:
+      - apk update
+      - apk add python
+      - python -c 'print("Hello!")'
+  job2:
+    stage: first
+    image: "alpine/3.5"
+    commands:
+      - apk update
+      - apk add python
+      - python -c 'print("Hello!")'
+    when: "PIPER_BRANCH == 'master'"
+  job3:
+    stage: second
+    image: "alpine/3.5"
+    commands:
+      - apk update
+      - apk add python
+      - python -c 'print("Hello!")'
+  job4:
+    stage: second
+    image: "alpine/3.5"
+    commands:
+      - apk update
+      - apk add python
+      - python -c 'print("Hello!")'
+  job5:
+    stage: third
+    image: "alpine/3.5"
+    commands:
+      - apk update
+      - apk add python
+      - python -c 'print("Hello!")'
+
