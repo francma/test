@@ -38,6 +38,10 @@ jobs:
     image: "alpine/3.5"
     commands:
       - apk update
+      - false
       - apk add python
       - python -c 'print("Hello!")'
-
+    after_failure:
+      - echo "Failed!"
+      - false
+      - echo "Not here!"
